@@ -1,0 +1,126 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>signup</title>
+    <script src="https://kit.fontawesome.com/cd43dd9542.js" crossorigin="anonymous"></script>
+    <link href="~/Content/css/signup.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+
+        <div class="container">
+
+
+            <div class="sign-up">
+
+                <div class="opacity">
+
+                    <nav>
+
+                    
+                        <img src="~/Content/images/logo.png" width="100"  >
+                    </nav>
+
+
+                    <div class="groups">
+                        <div class="empty-row"></div>
+
+                        <div class="boxes">
+
+
+                            <div class="sign-shape">
+
+                                <img src="~/Content/images/online.png" />
+                                @*<img src="~/Content/images/logo.png" alt="sign-up">*@
+
+                                <!--<a>-->  @*<input type="submit" value="Registration" id="regpic"></a>*@
+
+
+                            </div>
+
+                            <div class="box">
+
+                                <p>Sign up</p>
+
+                                <form action="#">
+                                    <div class="info">
+                                        <label>First Name</label>
+                                        <input type="text" id="fname" name="fname" required>
+                                    </div>
+                                    <div class="info">
+                                        <label>last name</label>
+                                        <input type="text" id="lname" name="lname" required>
+
+                                    </div>
+
+                                    <div class="info">
+
+                                        <label>E-mail Address</label>
+
+                                        <div class="lock">
+                                            <input type="email" id="Email-address">
+                                            <i class="fa-solid fa-envelope"></i>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="info">
+                                        <label>phone Number</label>
+                                        <div class="lock">
+                                            <input type="text" id="number">
+                                            <i class="fa-solid fa-mobile-screen"></i>
+                                        </div>
+                                    </div>
+                                    <div class="info">
+                                        <label>Password</label>
+                                        <div class="lock">
+                                            <input type="password" id="pass">
+                                            <i class="fa-solid fa-unlock"></i>
+                                        </div>
+                                    </div>
+                                    <div class="info">
+                                        <label>Confirm Password </label>
+                                        <div class="lock">
+                                            <input type="password" id="conf-pass">
+                                            <i class="fa-solid fa-unlock"></i>
+                                        </div>
+
+
+                                    </div>
+                                    <p class="message" style="font-size:12px; color:red;"></p>
+
+                                    <div class="sub">
+
+                                        <a href="wellcomepage.html"> <input type="submit" value="Registration" id="reg"></a>
+
+                                    </div>
+                                    <div class="already">
+                                        already have an acount?<a href="https://localhost:44388/myAccount/signin" id="whats">  Login</a>
+                                    </div>
+                                    <p id="already-registered">you already registered</p>
+                                    <div class="agree">
+                                        <input type="checkbox">
+                                        <label>I agree to the <span id="blue">Terms and Conditions</span></label>
+
+                                    </div>
+                                </form>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

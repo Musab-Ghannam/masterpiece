@@ -1,0 +1,267 @@
+﻿* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.sign-up {
+    background-image: url('../images/s13.png');
+    background-size: cover;
+    height: 120vh;
+    position: relative;
+}
+
+
+
+
+
+
+
+@media(min-device-width:481px) and (max-device-width:768px) {
+
+
+    .sign-up {
+        background-image: url(../Image/backGround-login-tablet.jpg);
+        height: 120vh;
+    }
+}
+
+
+
+.sign-up .opacity::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: #20BBBD;
+    opacity: .4;
+}
+
+
+.groups {
+    display: grid;
+    grid-template-rows: 0px auto;
+}
+
+.icon {
+    z-index: 3;
+}
+
+.sign-up nav img {
+    transform: rotate(-50deg);
+    width: 80px;
+}
+
+.boxes .sign-shape {
+    z-index: 3;
+}
+
+
+
+    .boxes .sign-shape img {
+        width: 550px;
+    }
+
+@media(min-device-width:0px) and (max-device-width:480px) {
+
+
+    .sign-up {
+        background-image: url(../Image/backGround-login-phone.jpg);
+        height: 150vh;
+    }
+
+
+    .sign-shape #ok {
+        width: 200px;
+    }
+}
+
+.boxes {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+    .boxes .box {
+        background-color: white;
+        padding: 5px 15px 10px;
+        width: 400px;
+        padding: 5px 20px 20px 20px;
+        border-radius: 20px;
+        z-index: 5;
+        position: relative;
+    }
+
+
+
+@media(min-device-width:1025px) {
+
+
+    .boxes .box::before {
+        content: "";
+        border-width: 1px;
+        border-style: solid;
+        position: absolute;
+        height: 100%;
+        left: -60%;
+        top: -10%;
+    }
+}
+
+.box .info label {
+    font-size: 25px;
+}
+
+.boxes .box p {
+    text-align: center;
+    color: #20BBBD;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+
+.boxes .box form .info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+    color: #5BCDCF;
+    margin-top: 10px;
+}
+
+/* .boxes .box form .info input {
+
+width: 170px;
+    
+    
+} */
+.boxes .sub {
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+}
+
+
+    .boxes .sub a {
+        text-decoration: none;
+        background-color: #20BBBD;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 3px;
+    }
+
+.boxes .agree {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.agree #blue {
+    color: #1115BB;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.info {
+    position: relative;
+}
+
+    .info .lock i {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        font-size: 15px;
+        transform: translateY(-50%);
+        color:black;
+    }
+
+.boxes .box form .info input {
+    padding: 10px;
+    border: 2px solid #20BBBD;
+    border-radius: 10px;
+}
+#regpic {
+    color: white;
+    background-color: #20BBBD;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#reg {
+    color: white;
+    background-color: #20BBBD;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.message {
+    color: red;
+    font-size: 12px;
+}
+
+.already {
+    margin-top: 3px;
+    text-align: center;
+}
+
+    .already a {
+        text-decoration: none;
+        color: #20BBBD;
+        font-weight: bold;
+    }
+
+
+
+#already-registered {
+    font-size: 11px;
+    color: red;
+    text-align: center;
+    display: none;
+}
+
+
+
+
+
+@media(min-device-width:0px) and (max-device-width:480px) {
+
+    .boxes {
+        flex-direction: column-reverse;
+        margin-top: 10px;
+    }
+
+        .boxes .sign-shape img {
+            width: 250px;
+            margin-top: 18px;
+        }
+
+    .groups {
+        grid-template-rows: 1px auto;
+    }
+
+
+
+    .boxes .box {
+        width: 290px;
+    }
+
+        .boxes .box label {
+            font-size: 12px;
+        }
+}
+
+
+@media(min-device-width:481px) and (max-device-width:768px) {
+
+    .boxes .box {
+        width: 350px;
+    }
+}
