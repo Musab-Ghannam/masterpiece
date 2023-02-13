@@ -19,5 +19,26 @@ namespace latestfinalmasterpiece.Controllers
         {
             return View();
         }
+
+        public ActionResult doctorprofile()
+        {
+            return View();
+        }
+
+        public ActionResult Doctorprof()
+        {
+            return View();
+        }
+
+        public ActionResult booking()
+        {
+            return View();
+        }
+
+
+        public ActionResult checkout()
+        {
+            return View();
+        }
     }
 }

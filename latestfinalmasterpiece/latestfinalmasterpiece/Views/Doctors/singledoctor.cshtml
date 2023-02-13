@@ -79,10 +79,10 @@
 
             <nav class="nav1" id="navbar">
 
-            @*<img src="~/Content/images/logo.png" width="0" alt="logo" style="padding:0px !important;margin-left:50px !important" />*@
-         <div class="empty" style="height:50px">
-             <img src="~/Content/images/logo.png" style="height: 50px; padding: 0; margin: 0;"/>
-         </div>
+                @*<img src="~/Content/images/logo.png" width="0" alt="logo" style="padding:0px !important;margin-left:50px !important" />*@
+                <div class="empty" style="height:50px">
+                    <img src="~/Content/images/logo.png" style="height: 50px; padding: 0; margin: 0;" />
+                </div>
                 <div class="hamburger">
                     <span class="line"></span>
                     <span class="line"></span>
@@ -115,10 +115,10 @@
 
                 <div class="ml-auto d-flex align-items-center views"> <span class="btn " style="color: #20BBBD"> <span class="fas fa-th px-md-2 px-1"></span><span style="color:black">Grid view</span> </span> <span class="btn"> <span class="fas fa-list-ul"></span><span class="px-md-2 px-1" style="color:black">List view</span> </span> <span class="green-label px-md-2 px-1" style="font-size:25px">428</span> <span class="text-muted" style="font-size:25px">therapists</span> </div>
             </div>
-            <div class="dis" >
+            <div class="dis">
                 <div class="d-lg-flex align-items-lg-center pt-2">
                     <div class="form-inline d-flex align-items-center my-2 mr-lg-2 radio bg-light border"> <label class="options">highest rated <input type="radio" name="radio"> <span class="checkmark"></span> </label> <label class="options">Lowest Price <input type="radio" name="radio" checked> <span class="checkmark"></span> </label> </div>
-                  
+
 
                     <form>
                         <div class="form-group pt-2 mb--2">
@@ -133,9 +133,9 @@
                             </div>
                         </div>
                     </form>
-                    <form class="ml-3 mt-2" >
+                    <form class="ml-3 mt-2">
                         <div class="form-group" style="align-items:center;">
-                            <select class="form-control " id="specialization"  >
+                            <select class="form-control " id="specialization">
                                 <option disabled selected>Specialization</option>
                                 <option>Anxiety</option>
                                 <option>Depression</option>
@@ -149,14 +149,14 @@
 
                     @*<div class="form-inline d-flex align-items-center my-2 checkbox bg-light border mx-lg-2">
 
-            <label class="tick">Czech republic <input type="checkbox"> <span class="check"></span> </label> <span class="border px-1 mx-2 mr-3 font-weight-bold count"> 12</span> <select name="country" id="country" class="bg-light">
+                    <label class="tick">Czech republic <input type="checkbox"> <span class="check"></span> </label> <span class="border px-1 mx-2 mr-3 font-weight-bold count"> 12</span> <select name="country" id="country" class="bg-light">
 
-                <option value="" hidden>City</option>
-                <option value="India">Amman</option>
-                <option value="USA">zarqa</option>
-                <option value="Uk">Irbid</option>
-            </select>
-        </div>*@
+                        <option value="" hidden>City</option>
+                        <option value="India">Amman</option>
+                        <option value="USA">zarqa</option>
+                        <option value="Uk">Irbid</option>
+                    </select>
+                </div>*@
                 </div>
             </div>
             <div class="d-sm-flex align-items-sm-center pt-2 clear">
@@ -197,6 +197,9 @@
                         <div class="form-inline d-flex align-items-center py-2"> <label class="tick"> <span class="fas fa-star"></span> <span class="far fa-star px-1 text-muted"></span> <span class="far fa-star px-1 text-muted"></span> <span class="far fa-star px-1 text-muted"></span> <span class="far fa-star px-1 text-muted"></span> <input type="checkbox"> <span class="check"></span> </label> </div>
                     </form>
                 </div>
+            </div>
+            <div class="container">
+                <span id="rateMe2" class="empty-stars"></span>
             </div>
             <div class="content py-md-0 py-3">
                 <section id="sidebar">
@@ -241,6 +244,10 @@
                         <label for="Female">Female</label><br>
 
                     </form>
+
+
+                    <!-- rating.js file -->
+
                     <div class="py-3">
                         <h5 class="font-weight-bold">Rating</h5>
                         <form class="rating">
@@ -419,12 +426,22 @@
 
     </div>
     <script>
+
+
+        // Rating Initialization
+        $(document).ready(function () {
+            $('#rateMe2').mdbRate();
+        });
+
+
+
         const selectElement = document.querySelector("#specialization");
-        
-            const dropdownArrow = selectElement.parentElement.querySelector(".fa-caret-down");
-            dropdownArrow.style.color = "#20BBBD";
-    
+
+        const dropdownArrow = selectElement.parentElement.querySelector(".fa-caret-down");
+        dropdownArrow.style.color = "#20BBBD";
+
         console.log("ppp")
     </script>
+    <script src="js/addons/rating.js"></script>
 </body>
 </html>
