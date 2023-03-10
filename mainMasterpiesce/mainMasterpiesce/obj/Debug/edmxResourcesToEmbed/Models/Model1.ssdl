@@ -108,6 +108,8 @@
     <Property Name="pricePerHour" Type="float" />
     <Property Name="ratingdoctor" Type="float" />
     <Property Name="ratingint" Type="int" />
+    <Property Name="experience" Type="varchar(max)" />
+    <Property Name="birthday" Type="date" />
   </EntityType>
   <EntityType Name="feedback">
     <Key>
@@ -144,6 +146,7 @@
     <Property Name="wallet" Type="float" />
     <Property Name="Gender" Type="bit" />
     <Property Name="Email" Type="varchar(max)" />
+    <Property Name="birthday" Type="date" />
   </EntityType>
   <EntityType Name="specializations">
     <Key>

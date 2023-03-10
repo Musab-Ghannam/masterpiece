@@ -33,7 +33,8 @@ namespace mainMasterpiesce.Models
         public Nullable<double> wallet { get; set; }
         public Nullable<bool> Gender { get; set; }
         public string Email { get; set; }
-    
+        public Nullable<System.DateTime> birthday { get; set; }
+        //public DateTime? birthday { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<appointment> appointments { get; set; }
         public virtual AspNetUser AspNetUser { get; set; }

@@ -1298,9 +1298,12 @@
     <Content Include="temp\lawride-master\vendors\themify-icons\fonts\themify.woff" />
     <Content Include="temp\lawride-master\vendors\themify-icons\Themify IconFonts 5-23-2014.json" />
     <Content Include="Views\Shared\_completedoctor.cshtml" />
+    <Content Include="Views\DoctorsInfo\patientProfile.cshtml" />
+    <Content Include="Views\Shared\_patientprofile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="FormalFile\" />
     <Folder Include="img\" />
     <Folder Include="Views\mainHme\" />
   </ItemGroup>

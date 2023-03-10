@@ -401,6 +401,15 @@ namespace mainMasterpiesce.Controllers
         
         public ActionResult booking(int?id,string day,string selectedSlot,string btnn,string close,string valueToRemove)    
         {
+
+    
+
+
+
+
+
+
+
             int count = (int)(Session["countarrow"] ?? 0);
           
             ViewBag.weeks = count;
@@ -526,7 +535,58 @@ namespace mainMasterpiesce.Controllers
             ViewBag.ButtonStyle = buttonStyle;
             int btncount = (int)(Session["count"] ?? 0);
             bool flagbtnselectedseasion = false;
+
+
+
+
+
+
+            bool flaghavereserv = true;
+
+            //You have this appointment
+            var aspidd = User.Identity.GetUserId();
+            var mainIdd = doc.patients.FirstOrDefault(c => c.Id == aspidd).PatiantId;
+            var apointmentpatient = doc.appointments.Where(c => c.patientId == mainIdd).ToList();
+
+            List<string> reservedSlotsListT = new List<string>();
+            foreach (var item in apointmentpatient)
+            {
+                string reservedSlotT = item.starttime;
+                reservedSlotsListT.Add(reservedSlotT);
+                ViewBag.youhaveit += reservedSlotT + ',';
+            }
+
+
             if (!string.IsNullOrEmpty(btnValue))
+            {
+
+                if (ViewBag.youhaveit.Contains(btnValue + ViewBag.currentday.Substring(0, 5) + ","))
+                {
+
+                    TempData["swal_message"] = $"Sorry, you already have an appointment scheduled at {btnValue} on {ViewBag.currentday.Substring(0, 5)}. Please select a different time.";
+                    ViewBag.title = "error";
+                    ViewBag.icon = "error";
+
+
+
+
+
+                    flaghavereserv = false;
+                }
+
+
+
+
+            }
+
+
+
+
+            if (flaghavereserv)
+            {
+
+       
+                if (!string.IsNullOrEmpty(btnValue))
             {
                 btncount++;
                 Session["count"] = btncount;
@@ -534,15 +594,28 @@ namespace mainMasterpiesce.Controllers
                 //for (int i = 0; i < countbtn; i++)
                 //{
 
+
                 //}
+        
+            
+
              
-                if (!string.IsNullOrEmpty(ViewBag.currentday))
-                {
-                    ViewBag.btn += btnValue + ViewBag.currentday.Substring(0, 5) + ",";
 
-                    ViewBag.flagcolor = true;
 
-                }
+
+
+
+  if (!string.IsNullOrEmpty(ViewBag.currentday))
+                    {
+                        ViewBag.btn += btnValue + ViewBag.currentday.Substring(0, 5) + ",";
+
+                        ViewBag.flagcolor = true;
+
+                    }
+
+             
+            
+                  
 
           
                     //ViewBag.flagcolor = flagcolor;
@@ -563,8 +636,9 @@ namespace mainMasterpiesce.Controllers
 
                 // Store the updated value of ViewBag.btn in the session variable
                 System.Web.HttpContext.Current.Session["btnValues"] = ViewBag.btn;
-             
-             
+
+
+                }
             }
             ViewBag.flagbtnselectedseasion = flagbtnselectedseasion;
 
@@ -602,6 +676,10 @@ namespace mainMasterpiesce.Controllers
             {
                 ViewBag.disabled = "";
             }
+
+
+
+
 
 
             return View(data);
@@ -793,7 +871,8 @@ namespace mainMasterpiesce.Controllers
 
 
 
-        [Authorize(Roles = "patient")]
+        [Authorize(Roles="patient")]
+      
         public ActionResult checkout(int? id)
         {
 
@@ -813,7 +892,7 @@ namespace mainMasterpiesce.Controllers
 
             var appointmentt = doc.appointments.Where(c => c.doctorId == id).ToList();
             var pricedoctor = doc.doctors.FirstOrDefault(c => c.doctorId == id).pricePerHour;
-            var patient = doc.patients.FirstOrDefault(c => c.Id == AspId).PatiantId;
+            //var patient = doc.patients.FirstOrDefault(c => c.Id == AspId).PatiantId;
             //var doctorId = doc.doctors.FirstOrDefault(c => c.doctorId == id).doctorId;
 
             dynamic data = new ExpandoObject();
@@ -823,12 +902,12 @@ namespace mainMasterpiesce.Controllers
             data.appoint = appointmentt;
 
             data.price = pricedoctor;
-          
-            
+
+            Session["doctorId"] = null;
 
             return View(data);
         }
-
+  
         public ActionResult ConfirmBooking(int id, [Bind(Include = "apointmentId,patientId,doctorId,starttime,endtime,doctornotes, patientnotes,apointmentprice,rating,medication,dosage,dosagefrequency,medicationinstructions,confirmappointment")] appointment appoint, string card_name)
         {
 
@@ -923,20 +1002,29 @@ namespace mainMasterpiesce.Controllers
                 appoint.confirmappointment = 0;
                 appoint.apointmentprice = pricedoctor;
 
-
+                var patientName = doc.patients.FirstOrDefault(c => c.Id == AspId).patientName;
 
           
          
                 using (var db = new FindingpeaceEntities())
                 {
                     db.appointments.Add(appoint);
+
+
+
+                    TempData["swal_message"] = $"Dear-{patientName}, Your appointment has been confirmed. We look forward to seeing you soon. In the meantime, feel free to explore our website and find ways to bring more peace into your life.";
+
+                    ViewBag.title = "success";
+                    ViewBag.icon = "success";
+                    ViewBag.redirectUrl = Url.Action("successfullyBooking", new { id =id });
+
                     db.SaveChanges();
                 }
             }
 
 
 
-            return RedirectToAction("succefullyBooking", new { id=id });
+            return View("checkout", data);
         }
 
 
@@ -980,6 +1068,37 @@ namespace mainMasterpiesce.Controllers
             return View(data);
         }
 
+
+        public ActionResult patientProfile(int? id)
+        {
+
+         
+
+
+   
+
+
+
+
+
+
+            var AspId = User.Identity.GetUserId();
+            var patientId = doc.patients.FirstOrDefault(c => c.Id == AspId).PatiantId;
+            //var doctors = doc.doctors.Where(c => c.doctorId == id).ToList();
+            var patientInfo = doc.patients.Where(c => c.Id == AspId).ToList();
+            var appointmentt = doc.appointments.Where(c => c.patientId == patientId).ToList();
+          
+            //var pricedoctor = doc.doctors.FirstOrDefault(c => c.doctorId == id).pricePerHour;
+            var patient = doc.patients.FirstOrDefault(c => c.Id == AspId).PatiantId;
+           
+            //var appointcurrentpatient = doc.appointments.Where(c => c.doctorId == id && c.patientId == patient).ToList();
+            //var doctorId = doc.doctors.FirstOrDefault(c => c.doctorId == id).doctorId;
+
+          
+
+
+            return View(Tuple.Create(patientInfo,appointmentt));
+        }
 
 
 

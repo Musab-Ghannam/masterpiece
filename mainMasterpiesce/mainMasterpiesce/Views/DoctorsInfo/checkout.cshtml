@@ -4,6 +4,7 @@
 
 
 @{
+    ViewBag.Title = "checkout";
     Layout = null;
 }
 
@@ -11,10 +12,12 @@
 
 <html>
 <head>
+ 
     <meta name="viewport" content="width=device-width" />
     <title>checkout</title>
 </head>
 <body>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
     <div>
         <!-- Main Wrapper -->
         <div class="main-wrapper">
@@ -67,122 +70,122 @@
 
 
                                         <!-- Personal Information -->
-                                    <div class="info-widget">
-                                        <h4 class="card-title">Personal Information</h4>
-                                        <div class="row">
-                                            <div class="col-md-6 col-sm-12">
-                                                <div class="form-group card-label">
-                                                    <label>First Name</label>
-                                                    <input class="form-control" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-sm-12">
-                                                <div class="form-group card-label">
-                                                    <label>Last Name</label>
-                                                    <input class="form-control" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-sm-12">
-                                                <div class="form-group card-label">
-                                                    <label>Email</label>
-                                                    <input class="form-control" type="email">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-sm-12">
-                                                <div class="form-group card-label">
-                                                    <label>Phone</label>
-                                                    <input class="form-control" type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="exist-customer">
-                                            Existing Customer? <a href="https://localhost:44388/myAccount/signin" style="color: #20BBBD">
-                                                Click here to
-                                                login
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- /Personal Information -->
-
-                                    <div class="payment-widget">
-                                        <h4 class="card-title">Payment Method</h4>
-
-                                        <!-- Credit Card Payment -->
-                                        <div class="payment-list">
-                                            <label class="payment-radio credit-card-option">
-                                                <input type="radio" name="radio" checked>
-                                                <span class="checkmark"></span>
-                                                Credit card
-                                            </label>
+                                        <div class="info-widget">
+                                            <h4 class="card-title">Personal Information</h4>
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 col-sm-12">
                                                     <div class="form-group card-label">
-                                                        <label for="card_name">Name on Card</label>
-                                                        <input class="form-control" id="card_name" type="text" required oninput="CardName(this)" name="card_name">
+                                                        <label>First Name</label>
+                                                        <input class="form-control" type="text">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 col-sm-12">
                                                     <div class="form-group card-label">
-                                                        <label for="card_number">Card Number</label>
-                                                        <input class="form-control" id="card_number"
-                                                               placeholder="1234  5678  9876  5432" type="text" required oninput="handleSearchInput(this)">
+                                                        <label>Last Name</label>
+                                                        <input class="form-control" type="text">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-6 col-sm-12">
                                                     <div class="form-group card-label">
-                                                        <label for="expiry_month">Expiry Month</label>
-                                                        <input class="form-control" id="expiry_month" placeholder="MM"
-                                                               type="text" required oninput="handleexpireInput(this)">
+                                                        <label>Email</label>
+                                                        <input class="form-control" type="email">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-6 col-sm-12">
                                                     <div class="form-group card-label">
-                                                        <label for="expiry_year">Expiry Year</label>
-                                                        <input class="form-control" id="expiry_year" placeholder="YY"
-                                                               type="text" required oninput="handleexpireInput(this)">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group card-label">
-                                                        <label for="cvv">CVV</label>
-                                                        <input class="form-control" id="cvv" type="text" required oninput="handlecvv(this)">
+                                                        <label>Phone</label>
+                                                        <input class="form-control" type="text">
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="exist-customer">
+                                                Existing Customer? <a href="https://localhost:44388/myAccount/signin" style="color: #20BBBD">
+                                                    Click here to
+                                                    login
+                                                </a>
+                                            </div>
                                         </div>
-                                        <!-- /Credit Card Payment -->
-                                        <!-- Paypal Payment -->
-                                        <div class="payment-list">
-                                            <label class="payment-radio paypal-option">
-                                                <input type="radio" name="radio">
-                                                <span class="checkmark"></span>
-                                                Paypal
-                                            </label>
-                                        </div>
-                                        <!-- /Paypal Payment -->
-                                        <!-- Terms Accept -->
-                                        <div class="terms-accept">
-                                            <div class="custom-checkbox">
-                                                <input type="checkbox" id="terms_accept">
-                                                <label for="terms_accept">
-                                                    I have read and accept <a href="#">
-                                                        Terms &amp;
-                                                        Conditions
-                                                    </a>
+                                        <!-- /Personal Information -->
+
+                                        <div class="payment-widget">
+                                            <h4 class="card-title">Payment Method</h4>
+
+                                            <!-- Credit Card Payment -->
+                                            <div class="payment-list">
+                                                <label class="payment-radio credit-card-option">
+                                                    <input type="radio" name="radio" checked>
+                                                    <span class="checkmark"></span>
+                                                    Credit card
+                                                </label>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group card-label">
+                                                            <label for="card_name">Name on Card</label>
+                                                            <input class="form-control" id="card_name" type="text" required oninput="CardName(this)" name="card_name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group card-label">
+                                                            <label for="card_number">Card Number</label>
+                                                            <input class="form-control" id="card_number"
+                                                                   placeholder="1234  5678  9876  5432" type="text" required oninput="handleSearchInput(this)">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group card-label">
+                                                            <label for="expiry_month">Expiry Month</label>
+                                                            <input class="form-control" id="expiry_month" placeholder="MM"
+                                                                   type="text" required oninput="handleexpireInput(this)">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group card-label">
+                                                            <label for="expiry_year">Expiry Year</label>
+                                                            <input class="form-control" id="expiry_year" placeholder="YY"
+                                                                   type="text" required oninput="handleexpireInput(this)">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group card-label">
+                                                            <label for="cvv">CVV</label>
+                                                            <input class="form-control" id="cvv" type="text" required oninput="handlecvv(this)">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /Credit Card Payment -->
+                                            <!-- Paypal Payment -->
+                                            <div class="payment-list">
+                                                <label class="payment-radio paypal-option">
+                                                    <input type="radio" name="radio">
+                                                    <span class="checkmark"></span>
+                                                    Paypal
                                                 </label>
                                             </div>
-                                        </div>
-                                        <!-- /Terms Accept -->
-                                        <!-- Submit Section -->
-                                        <div class="submit-section mt-4">
-                                            <button type="submit" class="btn btn-primary submit-btn" style="background-color:#20BBBD">
-                                                Confirm and
-                                                Pay
-                                            </button>
-                                        </div>
-                                        <!-- /Submit Section -->
+                                            <!-- /Paypal Payment -->
+                                            <!-- Terms Accept -->
+                                            <div class="terms-accept">
+                                                <div class="custom-checkbox">
+                                                    <input type="checkbox" id="terms_accept">
+                                                    <label for="terms_accept">
+                                                        I have read and accept <a href="#">
+                                                            Terms &amp;
+                                                            Conditions
+                                                        </a>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <!-- /Terms Accept -->
+                                            <!-- Submit Section -->
+                                            <div class="submit-section mt-4">
+                                                <button type="submit" class="btn btn-primary submit-btn" style="background-color:#20BBBD">
+                                                    Confirm and
+                                                    Pay
+                                                </button>
+                                            </div>
+                                            <!-- /Submit Section -->
 
-                                    </div>
+                                        </div>
                                     }
                                     <!-- /Checkout Form -->
 
@@ -193,183 +196,183 @@
 
                         <div class="col-md-5 col-lg-4 theiaStickySidebar">
 
-                 
-                
-
-                                <div class="card booking-card">
-                                    <div class="card-header">
-                                        <h4 class="card-title">Booking Summary</h4>
-                                    </div>
-                                    <div class="card-body">
-
-                                        <!-- Booking Doctor Info -->
-                                        <div class="booking-doc-info">
-                                            <a href="doctor-profile.html" class="booking-doc-img">
-                                                <img src="~/Content/images/dr2.png" alt="User Image">
-                                            </a>
-                                            <div class="booking-info">
-                                                <h4><a href="doctor-profile.html">@Model.doctor[0].doctorName</a></h4>
 
 
 
+                            <div class="card booking-card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Booking Summary</h4>
+                                </div>
+                                <div class="card-body">
+
+                                    <!-- Booking Doctor Info -->
+                                    <div class="booking-doc-info">
+                                        <a href="doctor-profile.html" class="booking-doc-img">
+                                            <img src="~/Content/images/dr2.png" alt="User Image">
+                                        </a>
+                                        <div class="booking-info">
+                                            <h4><a href="doctor-profile.html">@Model.doctor[0].doctorName</a></h4>
 
 
-                                                @{
-                                                    Decimal ratingdecimal = Convert.ToDecimal(Model.doctor[0].ratingdoctor);
-
-                                                    int ratingint = Convert.ToInt32(Math.Truncate(ratingdecimal));
-
-
-                                                    string splitrating = Convert.ToString(@Model.doctor[0].ratingdoctor);
-                                                    string[] secondsectionrating = splitrating.Split('.'); }
 
 
 
-                                                <div class="rating">
-                                                    @{for (int i = 0; i < ratingint; i++)
+                                            @{
+                                                Decimal ratingdecimal = Convert.ToDecimal(Model.doctor[0].ratingdoctor);
+
+                                                int ratingint = Convert.ToInt32(Math.Truncate(ratingdecimal));
+
+
+                                                string splitrating = Convert.ToString(@Model.doctor[0].ratingdoctor);
+                                                string[] secondsectionrating = splitrating.Split('.'); }
+
+
+
+                                            <div class="rating">
+                                                @{for (int i = 0; i < ratingint; i++)
+                                                    {
+                                                        <span class="fas fa-star" style=" color: gold;"> </span>
+                                                    }
+
+
+
+
+
+                                                    int secondrating = Convert.ToInt32(secondsectionrating[1]);
+
+
+                                                    if (secondrating <= 9)
+                                                    {
+
+                                                        int secondfinal = secondrating * 10;
+
+
+
+
+
+
+                                                        if (secondfinal >= 25 && secondrating <= 50)
                                                         {
+
+
+
+                                                            <span class="fas fa-star-half-alt" style="color: gold;"></span>
+                                                        }
+                                                        else if (secondfinal > 50)
+                                                        {
+
                                                             <span class="fas fa-star" style=" color: gold;"> </span>
                                                         }
 
 
-
-
-
-                                                        int secondrating = Convert.ToInt32(secondsectionrating[1]);
-
-
-                                                        if (secondrating <= 9)
+                                                    }
+                                                    else if (secondrating > 9)
+                                                    {
+                                                        if (secondrating >= 25 && secondrating <= 50)
                                                         {
 
-                                                            int secondfinal = secondrating * 10;
 
 
-
-
-
-
-                                                            if (secondfinal >= 25 && secondrating <= 50)
-                                                            {
-
-
-
-                                                                <span class="fas fa-star-half-alt" style="color: gold;"></span>
-                                                            }
-                                                            else if (secondfinal > 50)
-                                                            {
-
-                                                                <span class="fas fa-star" style=" color: gold;"> </span>
-                                                            }
-
-
+                                                            <span class="fas fa-star-half-alt" style="color: gold;"></span>
                                                         }
-                                                        else if (secondrating > 9)
+                                                        if (secondrating > 50 && secondrating <= 75)
                                                         {
-                                                            if (secondrating >= 25 && secondrating <= 50)
-                                                            {
 
+                                                            <span class="fas fa-star" style=" color: gold;"> </span>
+                                                        }
 
+                                                        if (secondrating > 75)
+                                                        {
 
-                                                                <span class="fas fa-star-half-alt" style="color: gold;"></span>
-                                                            }
-                                                            if (secondrating > 50 && secondrating <= 75)
-                                                            {
-
-                                                                <span class="fas fa-star" style=" color: gold;"> </span>
-                                                            }
-
-                                                            if (secondrating > 75)
-                                                            {
-
-                                                                <span class="fas fa-star" style=" color: gold;"> </span>
-                                                            }
+                                                            <span class="fas fa-star" style=" color: gold;"> </span>
                                                         }
                                                     }
+                                                }
 
-                                                    <span class="d-inline-block average-rating">@Model.doctor[0].ratingdoctor</span>
-
-
-                                                </div>
+                                                <span class="d-inline-block average-rating">@Model.doctor[0].ratingdoctor</span>
 
 
+                                            </div>
 
-                                                <div class="clinic-details">
-                                                    <p class="doc-location">
-                                                        <i class="fas fa-map-marker-alt"></i>  @regionName
-                                                    </p>
-                                                </div>
+
+
+                                            <div class="clinic-details">
+                                                <p class="doc-location">
+                                                    <i class="fas fa-map-marker-alt"></i>  @regionName
+                                                </p>
                                             </div>
                                         </div>
+                                    </div>
 
-                                        <!-- Booking Doctor Info -->
-                                        @{
-
-
-
-
-                                            string slots = Session["btnValues"].ToString();
+                                    <!-- Booking Doctor Info -->
+                                    @{
 
 
-                                            string[] tableslots = slots.Split(',');
 
-                                            string[] datee = new string[tableslots.Length];
-                                            string[] hourre = new string[tableslots.Length];
 
-                                            for (int i = 0; i < tableslots.Length; i++)
+                                        string slots = Session["btnValues"].ToString();
+
+
+                                        string[] tableslots = slots.Split(',');
+
+                                        string[] datee = new string[tableslots.Length];
+                                        string[] hourre = new string[tableslots.Length];
+
+                                        for (int i = 0; i < tableslots.Length; i++)
+                                        {
+                                            if (tableslots[i].Contains('/'))
                                             {
-                                                if (tableslots[i].Contains('/'))
+
+                                                hourre[i] = (tableslots[i].ToString()).Substring(0, 8).TrimEnd('1').TrimEnd('0');
+
+                                                datee[i] = (tableslots[i].ToString()).Substring(8, Math.Min(13, tableslots[i].ToString().Length - 8));
+
+                                            }
+
+
+
+                                        }
+
+                                    }
+
+                                    <div class="booking-summary">
+                                        <div class="booking-item-wrap">
+                                            <ul class="booking-date">
+                                                <li style="color:black;font-weight:bold">Date <span style="color:black;font-weight:bold">Time</span> </li>
+
+
+                                                @*<li>Time <span>10:00 AM</span></li>*@
+                                            </ul>
+                                            <ul class="booking-fee">
+
+                                                @for (int i = 0; i < tableslots.Length; i++)
                                                 {
-
-                                                    hourre[i] = (tableslots[i].ToString()).Substring(0,8).TrimEnd('1').TrimEnd('0');
-
-                                                    datee[i] = (tableslots[i].ToString()).Substring(8, Math.Min(13, tableslots[i].ToString().Length - 8));
-
+                                                    <li>@datee[i] <span>@hourre[i]</span></li>
                                                 }
 
 
 
-                                            }
-
-                                        }
-
-                                        <div class="booking-summary">
-                                            <div class="booking-item-wrap">
-                                                <ul class="booking-date">
-                                                    <li style="color:black;font-weight:bold">Date <span style="color:black;font-weight:bold">Time</span> </li>
 
 
-                                                    @*<li>Time <span>10:00 AM</span></li>*@
-                                                </ul>
-                                                <ul class="booking-fee">
-
-                                                    @for (int i = 0; i < tableslots.Length; i++)
-                                                    {
-                                                        <li>@datee[i] <span>@hourre[i]</span></li>
-                                                    }
-
-
-
-
-
-                                                    @*<li>Booking Fee <span>$10</span></li>
+                                                @*<li>Booking Fee <span>$10</span></li>
                                                     <li>Video Call <span>$50</span></li>*@
+                                            </ul>
+                                            <div class="booking-total">
+                                                <ul class="booking-total-list">
+                                                    <li>
+                                                        <span>
+                                                            Total
+                                                        </span>
+
+
+                                                        <span class="total-cost">$   @Session["allprice"]</span>
+                                                    </li>
                                                 </ul>
-                                                <div class="booking-total">
-                                                    <ul class="booking-total-list">
-                                                        <li>
-                                                            <span>
-                                                                Total  
-                                                            </span>
-
-
-                                                            <span class="total-cost">$   @Session["allprice"]</span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
 
 
@@ -571,38 +574,55 @@
         <script src="~/doc/assets/js/script.js"></script>
     </div>
 
-    <script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
+    @if (TempData["swal_message"] != null)
+    {
+        <script>
+        Swal.fire({
+            title: "@ViewBag.title",
+            text: "@TempData["swal_message"]",
+            icon: "@ViewBag.icon",
+
+             allowOutsideClick: false, // prevent clicking outside the dialog to close it
+            allowEscapeKey: false // prevent pressing the escape key to close it
 
 
+        }).then(function () {
+         window.location.href = "/DoctorsInfo/succefullyBooking?id=@Model.doctor[0].doctorId";
 
-        function handleSearchInput(input) {
-            console.log(input);
-            if (input.value.length > 19) {
-                input.value = input.value.slice(0, 19);
-            }
-        }
+        });;
+        </script>
+    }
+
+    function handleSearchInput(input) {
+    console.log(input);
+    if (input.value.length > 19) {
+    input.value = input.value.slice(0, 19);
+    }
+    }
 
 
-        function handleexpireInput(input) {
-            console.log(input);
-            if (input.value.length > 2) {
-                input.value = input.value.slice(0, 2);
-            }
-        }
+    function handleexpireInput(input) {
+    console.log(input);
+    if (input.value.length > 2) {
+    input.value = input.value.slice(0, 2);
+    }
+    }
 
-        function handlecvv(input) {
-            console.log(input);
-            if (input.value.length > 3) {
-                input.value = input.value.slice(0, 3);
-            }
-        }
+    function handlecvv(input) {
+    console.log(input);
+    if (input.value.length > 3) {
+    input.value = input.value.slice(0, 3);
+    }
+    }
 
-        function CardName(input) {
-            console.log(input);
-            if (input.value.length > 9) {
-                input.value = input.value.slice(0, 9);
-            }
-        }
+    function CardName(input) {
+    console.log(input);
+    if (input.value.length > 9) {
+    input.value = input.value.slice(0, 9);
+    }
+    }
     </script>
 </body>
 

@@ -165,7 +165,7 @@ namespace mainMasterpiesce.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model, string lname, string male, string Isuser, string emailHelper, string phone)
+        public async Task<ActionResult> Register(RegisterViewModel model, string lname, string male, string Isuser, string emailHelper, string phone,string birthdate)
         {
 
             if (ModelState.IsValid)
@@ -193,7 +193,7 @@ namespace mainMasterpiesce.Controllers
                             Id = user.Id,
                             startedate = DateTime.Now,
                             patientemail = model.Email,
-
+                            birthday = Convert.ToDateTime(birthdate)
 
 
 
@@ -242,7 +242,7 @@ namespace mainMasterpiesce.Controllers
 
                             Gender = male == "male" ? true : false,
                             email= model.Email,
-
+                            birthday = Convert.ToDateTime(birthdate)
 
 
                         };

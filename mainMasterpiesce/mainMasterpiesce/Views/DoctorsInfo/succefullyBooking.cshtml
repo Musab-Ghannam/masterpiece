@@ -11,6 +11,7 @@
 
 <html>
 <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
     <meta name="viewport" content="width=device-width" />
     <title>checkout</title>
 </head>
@@ -78,56 +79,56 @@
 
 
                             @*@for (int i = 0; i < tableslots.Length; i++)
-                            {
-                                <li>@datee[i] <span>@hourre[i]</span></li>
-                            }*@
+                                {
+                                    <li>@datee[i] <span>@hourre[i]</span></li>
+                                }*@
 
 
-                                    @{
-
-
-
-
-                                        List<string> reservedSlotsList = new List<string>();
-                                        foreach (var item in Model.appointcurrentpatient)
-                                        {
-                                            string reservedSlot = item.endtime;
-                                            reservedSlotsList.Add(reservedSlot);
-                                            ViewBag.slotdatabase += reservedSlot+',';
-                                        }
-
-                                        string[] reservedSlotsArray = reservedSlotsList.ToArray();
+                            @{
 
 
 
+
+                                List<string> reservedSlotsList = new List<string>();
+                                foreach (var item in Model.appointcurrentpatient)
+                                {
+                                    string reservedSlot = item.endtime;
+                                    reservedSlotsList.Add(reservedSlot);
+                                    ViewBag.slotdatabase += reservedSlot + ',';
+                                }
+
+                                string[] reservedSlotsArray = reservedSlotsList.ToArray();
 
 
 
 
 
 
-                                        for (int i = 0; i < reservedSlotsArray.Length; i++)
-                                        {
-                                            string slot = reservedSlotsArray[i];
-                                            if (!string.IsNullOrEmpty(slot))
-                                            {
-
-                                                string reserveddate = slot.Substring(slot.Length - 5);
-
-
-                                                string timereserved = slot.Substring(0, slot.Length - 5);
-                                                                @*<h1>@timereserved</h1>*@
-
-                                                            }
 
 
 
-                                                        }
+                                for (int i = 0; i < reservedSlotsArray.Length; i++)
+                                {
+                                    string slot = reservedSlotsArray[i];
+                                    if (!string.IsNullOrEmpty(slot))
+                                    {
+
+                                        string reserveddate = slot.Substring(slot.Length - 5);
+
+
+                                        string timereserved = slot.Substring(0, slot.Length - 5);
+                                        @*<h1>@timereserved</h1>*@
+
+                                    }
+
+
+
+                                }
 
 
 
 
-                                                    }
+                            }
 
 
 
@@ -139,58 +140,58 @@
                                         <i class="fas fa-check"></i>
                                         <h3>Appointment booked Successfully!</h3>
                                         <p>
-                                            Appointment booked with <strong>@Model.doctor[0].doctorName</strong><br> 
+                                            Appointment booked with <strong>@Model.doctor[0].doctorName</strong><br>
 
-                                            @for (int i = 0; i < tableslots.Length-1; i++)
+                                            @for (int i = 0; i < tableslots.Length - 1; i++)
                                             {
                                                 @*<li>@datee[i] <span>@hourre[i]</span></li>*@
 
-                                           
-
-                                        <strong>
-                                            on @datee[i]
-                                            /@DateTime.Now.Year from @hourre[i] to
 
 
-                                            @if (!string.IsNullOrEmpty(@hourre[i]))
-                                            {
-
-                                                string lastfourr = hourre[i].ToString();
-
-                                                string lasstfourstring = lastfourr.Substring(lastfourr.Length - 6);
+                                                <strong>
+                                                    on @datee[i]
+                                                    /@DateTime.Now.Year from @hourre[i] to
 
 
-                                                int firstn = Convert.ToInt16(lastfourr.Substring(0, lastfourr.Length - 6)) + 1;
+                                                    @if (!string.IsNullOrEmpty(@hourre[i]))
+                                                    {
 
-                                                if (firstn == 13)
-                                                {
+                                                        string lastfourr = hourre[i].ToString();
 
-                                                    string firsttstring = firstn.ToString().Replace("13", "1");
-                                                    ViewBag.lastvalue = firsttstring + lasstfourstring;
-                                                    @ViewBag.lastvalue;
-                                                }
-                                                else if (firstn == 12)
-                                                {
-                                                    string lasstfourstringrepl = lasstfourstring.Replace("A", "P");
-
-                                                    ViewBag.lastvalue = firstn + lasstfourstringrepl;
-                                                    @ViewBag.lastvalue;
+                                                        string lasstfourstring = lastfourr.Substring(lastfourr.Length - 6);
 
 
-                                                }
-                                                else if (firstn != 13&&firstn!=12)
-                                                {
-                                                    ViewBag.lastvalue = firstn + lasstfourstring;
+                                                        int firstn = Convert.ToInt16(lastfourr.Substring(0, lastfourr.Length - 6)) + 1;
 
-                                                    @ViewBag.lastvalue;
+                                                        if (firstn == 13)
+                                                        {
 
-                                                }
+                                                            string firsttstring = firstn.ToString().Replace("13", "1");
+                                                            ViewBag.lastvalue = firsttstring + lasstfourstring;
+                                                            @ViewBag.lastvalue;
+                                                        }
+                                                        else if (firstn == 12)
+                                                        {
+                                                            string lasstfourstringrepl = lasstfourstring.Replace("A", "P");
+
+                                                            ViewBag.lastvalue = firstn + lasstfourstringrepl;
+                                                            @ViewBag.lastvalue;
 
 
-                                            }
+                                                        }
+                                                        else if (firstn != 13 && firstn != 12)
+                                                        {
+                                                            ViewBag.lastvalue = firstn + lasstfourstring;
+
+                                                            @ViewBag.lastvalue;
+
+                                                        }
 
 
-                                        </strong>
+                                                    }
+
+
+                                                </strong>
                                             }
                                         </p>
                                         <a href="invoice-view.html" class="btn btn-primary view-inv-btn">View Invoice</a>
@@ -392,38 +393,40 @@
         <script src="~/doc/assets/js/script.js"></script>
     </div>
 
+
+ 
     <script>
 
 
 
-        //function handleSearchInput(input) {
-        //    console.log(input);
-        //    if (input.value.length > 19) {
-        //        input.value = input.value.slice(0, 19);
-        //    }
-        //}
+                    //function handleSearchInput(input) {
+                    //    console.log(input);
+                    //    if (input.value.length > 19) {
+                    //        input.value = input.value.slice(0, 19);
+                    //    }
+                    //}
 
 
-        //function handleexpireInput(input) {
-        //    console.log(input);
-        //    if (input.value.length > 2) {
-        //        input.value = input.value.slice(0, 2);
-        //    }
-        //}
+                    //function handleexpireInput(input) {
+                    //    console.log(input);
+                    //    if (input.value.length > 2) {
+                    //        input.value = input.value.slice(0, 2);
+                    //    }
+                    //}
 
-        //function handlecvv(input) {
-        //    console.log(input);
-        //    if (input.value.length > 3) {
-        //        input.value = input.value.slice(0, 3);
-        //    }
-        //}
+                    //function handlecvv(input) {
+                    //    console.log(input);
+                    //    if (input.value.length > 3) {
+                    //        input.value = input.value.slice(0, 3);
+                    //    }
+                    //}
 
-        //function CardName(input) {
-        //    console.log(input);
-        //    if (input.value.length > 9) {
-        //        input.value = input.value.slice(0, 9);
-        //    }
-        //}
+                    //function CardName(input) {
+                    //    console.log(input);
+                    //    if (input.value.length > 9) {
+                    //        input.value = input.value.slice(0, 9);
+                    //    }
+                    //}
     </script>
 </body>
 

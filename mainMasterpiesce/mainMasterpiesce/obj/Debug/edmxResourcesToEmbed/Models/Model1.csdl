@@ -1,28 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="FindingpeaceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="C__MigrationHistory">
-    <Key>
-      <PropertyRef Name="MigrationId" />
-      <PropertyRef Name="ContextKey" />
-    </Key>
-    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
-  </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityContainer Name="FindingpeaceEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="C__MigrationHistory" EntityType="FindingpeaceModel.C__MigrationHistory" />
     <EntitySet Name="appointments" EntityType="FindingpeaceModel.appointment" />
     <EntitySet Name="AspNetRoles" EntityType="FindingpeaceModel.AspNetRole" />
     <EntitySet Name="AspNetUserClaims" EntityType="FindingpeaceModel.AspNetUserClaim" />
@@ -33,6 +12,7 @@
     <EntitySet Name="feedbacks" EntityType="FindingpeaceModel.feedback" />
     <EntitySet Name="patients" EntityType="FindingpeaceModel.patient" />
     <EntitySet Name="specializations" EntityType="FindingpeaceModel.specialization" />
+    <EntitySet Name="sysdiagrams" EntityType="FindingpeaceModel.sysdiagram" />
     <EntitySet Name="transactionsdoctors" EntityType="FindingpeaceModel.transactionsdoctor" />
     <EntitySet Name="transactionspatients" EntityType="FindingpeaceModel.transactionspatient" />
     <AssociationSet Name="FK__appointme__docto__7C4F7684" Association="FindingpeaceModel.FK__appointme__docto__7C4F7684">
@@ -92,6 +72,16 @@
       <End Role="patient" EntitySet="patients" />
     </AssociationSet>
   </EntityContainer>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="appointment">
     <Key>
       <PropertyRef Name="apointmentId" />
@@ -202,6 +192,8 @@
     <Property Name="pricePerHour" Type="Double" />
     <Property Name="ratingdoctor" Type="Double" />
     <Property Name="ratingint" Type="Int32" />
+    <Property Name="experience" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="birthday" Type="DateTime" Precision="0" />
     <NavigationProperty Name="appointments" Relationship="FindingpeaceModel.FK__appointme__docto__7C4F7684" FromRole="doctor" ToRole="appointment" />
     <NavigationProperty Name="AspNetUser" Relationship="FindingpeaceModel.FK__doctors__Id__778AC167" FromRole="doctor" ToRole="AspNetUser" />
     <NavigationProperty Name="specialization1" Relationship="FindingpeaceModel.FK__doctors__special__787EE5A0" FromRole="doctor" ToRole="specialization" />
@@ -238,6 +230,7 @@
     <Property Name="wallet" Type="Double" />
     <Property Name="Gender" Type="Boolean" />
     <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="birthday" Type="DateTime" Precision="0" />
     <NavigationProperty Name="appointments" Relationship="FindingpeaceModel.FK__appointme__patie__7B5B524B" FromRole="patient" ToRole="appointment" />
     <NavigationProperty Name="AspNetUser" Relationship="FindingpeaceModel.FK__patients__Id__70DDC3D8" FromRole="patient" ToRole="AspNetUser" />
     <NavigationProperty Name="feedbacks" Relationship="FindingpeaceModel.FK__feedback__patien__3493CFA7" FromRole="patient" ToRole="feedback" />
@@ -254,6 +247,16 @@
     <Property Name="picturespecialization" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="videospecializaion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="doctors" Relationship="FindingpeaceModel.FK__doctors__special__787EE5A0" FromRole="specialization" ToRole="doctor" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="transactionsdoctor">
     <Key>

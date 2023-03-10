@@ -26,7 +26,6 @@ namespace mainMasterpiesce.Models
         }
     
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<appointment> appointments { get; set; }
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
@@ -37,6 +36,7 @@ namespace mainMasterpiesce.Models
         public virtual DbSet<feedback> feedbacks { get; set; }
         public virtual DbSet<patient> patients { get; set; }
         public virtual DbSet<specialization> specializations { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<transactionsdoctor> transactionsdoctors { get; set; }
         public virtual DbSet<transactionspatient> transactionspatients { get; set; }
     }

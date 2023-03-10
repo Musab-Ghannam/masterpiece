@@ -141,7 +141,7 @@
                     }
                     @*<a href="#">log out</a>*@
 
-                    @if (User.Identity.IsAuthenticated)
+                    @if (User.IsInRole("patient"))
                     {
                         <a href="#"><i class="fa-solid fa-user"></i></a>
 
